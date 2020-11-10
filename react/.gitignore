@@ -1,0 +1,4 @@
+node_modules/
+dist/
+jiagrid/
+package-lock.json

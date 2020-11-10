@@ -1,0 +1,48 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <% for (var meta in htmlWebpackPlugin.options.metas) { %>
+    <%= htmlWebpackPlugin.options.metas[meta]%>
+    <% } %>
+    <title><%= htmlWebpackPlugin.options.title%></title>
+    <%= htmlWebpackPlugin.options.header%>
+    <link rel="stylesheet" href="/webjars/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script type="text/javascript" th:inline="javascript">
+        window.contextPath = function getContextPath() {
+            var o = document.querySelector("meta[name='contextPath']");
+            var url = '';
+            if (o && o.content)
+                url = o.content;
+            if (url.length && url.charAt(url.length - 1) == '/') {
+                url = url.substr(0, url.length - 1);
+            }
+            return url;
+        }();
+        var refreshUrl = window.contextPath + "/api/blank";
+        function refreshQuery() {
+            fetch(refreshUrl);
+        }
+        setInterval('refreshQuery()', 5 * 60 * 1000); 
+    </script>
+</head>
+
+<body>
+    <span style="font-family:jiagrid-font;"></span><!-- chrome下需要提前加载下字体 -->
+    <script type="text/javascript" src="/webjars/jquery/3.4.1/jquery.slim.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <div style="display: none">
+        <a id="idDetailA" target="_blank"></a>
+        <form id="exportexcel" name="exportexcel" method="post" th:action="@{/api/exportexcel}" target="_blank">
+            <input type="hidden" name="title" />
+            <input type="hidden" name="data" />
+        </form>
+    </div>
+</body>
+
+</html>
