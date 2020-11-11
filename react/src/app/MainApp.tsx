@@ -7,7 +7,7 @@ export class MainApp extends React.Component<any, any> {
         return (
             <div className="w-100 h-100 d-flex flex-column">
                 <div className="header">
-                    <span className="title">云汐LOVE</span>
+                    <span className="title">云汐·LOVE</span>
                 </div>
                 <div className="main">
                     Main
