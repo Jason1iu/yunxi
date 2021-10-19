@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>
+        <%=htmlWebpackPlugin.options.title%>
+    </title>
+    <script type="text/javascript">
+        window.contextPath = "<%=htmlWebpackPlugin.options.contextPath%>";
+    </script>
+
+</head>
+
+<body>
+    <span style="font-family:jiagrid-font;"></span><!-- chrome下需要提前加载下字体 -->
+    <div id="root">
+    </div>
+    <% for (var js in htmlWebpackPlugin.options.jsfiles) { %>
+        <script type="text/javascript"
+            src="<%=htmlWebpackPlugin.options.contextPath%><%=htmlWebpackPlugin.options.jsfiles[js]%>"></script>
+        <% } %>
+</body>
+
+</html>

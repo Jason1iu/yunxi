@@ -1,0 +1,17 @@
+{
+    "blank": {},
+    "user-info": {
+        "current": {
+            "id": 1,
+            "name": "云汐"
+        },
+        "users": [
+            {
+                "id": 1,
+                "name": "云汐"
+            }
+        ]
+    },
+    "system-users": [],
+    "system-log": []
+}

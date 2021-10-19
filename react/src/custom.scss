@@ -1,0 +1,58 @@
+$navbar-dark-color:                 rgba(255,255,255, .8) !default;
+$navbar-dark-hover-color:           rgba(255,255,255, .9) !default;
+$navbar-dark-disabled-color:        rgba(255,255,255, .55) !default;
+
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+/*覆盖掉bootstrap定义*/
+img, svg {
+  vertical-align: initial;
+}
+
+.link {
+  color: $link-color;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.link-hover {
+    color: $link-color;
+    cursor: pointer;
+    text-decoration: none;
+    &:hover {
+        font-weight: bolder;
+    }
+}
+
+.navbar-nav {
+  .nav-link {
+    svg {
+      position: relative;
+      top: 2px;
+      margin-right: 0.25rem;
+      &> path {
+      fill: $navbar-dark-color;
+    }
+  }
+
+    &:hover,
+    &:focus {
+      svg > path {
+        fill: $navbar-dark-hover-color;
+      }
+    }
+
+    &.disabled {
+      svg > path {
+        fill: $navbar-dark-disabled-color;
+      }
+     
+    }
+  }
+
+  .show > .nav-link,
+  .nav-link.active {
+    svg > path {
+      fill: $navbar-dark-active-color;
+    }
+  }
+}

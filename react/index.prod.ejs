@@ -1,0 +1,29 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" th:href="@{/favicon.ico}">
+    <% for (var meta in htmlWebpackPlugin.options.metas) { %>
+    <%= htmlWebpackPlugin.options.metas[meta]%>
+    <% } %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="imagetoolbar" content="false" />
+    <title><%=htmlWebpackPlugin.options.title%></title>
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+    <script type="text/javascript">
+        window.contextPath = "<%=htmlWebpackPlugin.options.contextPath%>";
+    </script>
+</head>
+
+<body>
+    <span style="font-family:jiagrid-font;"></span><!-- chrome下需要提前加载下字体 -->
+    <div id="root">
+    </div>
+    <% for (var js in htmlWebpackPlugin.options.jsfiles) { %>
+    <script type="text/javascript" th:src="@{/<%=htmlWebpackPlugin.options.jsfiles[js]%>}"></script>
+    <% } %>
+</body>
+
+</html>
